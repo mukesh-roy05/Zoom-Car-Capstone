@@ -7,7 +7,7 @@ const Payment = ({ totalPrice }) => {
     const handlePayment = async () => {
         const stripe = await stripePromise;
         // Call your backend to create a payment intent, handle the response accordingly
-        const response = await fetch('http://localhost:5000/api/bookings', {
+        const response = await fetch('https://zoom-car-capstone.onrender.com/api/bookings', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ totalPrice }), // Replace with actual booking details

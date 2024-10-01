@@ -9,7 +9,8 @@ const BookingDetails = () => {
 
     useEffect(() => {
         const fetchBookingDetails = async () => {
-            const response = await axios.get(`http://localhost:5000/api/bookings/${bookingId}`);
+            const response = await axios.get(`https://zoom-car-capstone.onrender.com/api/bookings/${bookingId}`);
+
             setBooking(response.data);
         };
         fetchBookingDetails();
@@ -17,7 +18,7 @@ const BookingDetails = () => {
 
     const handleCancel = async () => {
         try {
-            await axios.delete(`http://localhost:5000/api/bookings/${bookingId}`);
+            await axios.delete(`https://zoom-car-capstone.onrender.com/api/bookings/${bookingId}`);
             alert('Booking canceled successfully');
             navigate('/my-bookings');
         } catch (error) {

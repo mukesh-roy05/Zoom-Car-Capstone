@@ -8,7 +8,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/register', { email, password });
+            const response = await axios.post('https://zoom-car-capstone.onrender.com/api/auth/register', { email, password });
             alert('Registration successful!');
         } catch (error) {
             console.error('Error during registration', error);

@@ -8,7 +8,7 @@ const Vehicles = () => {
 
     useEffect(() => {
         const fetchVehicles = async () => {
-            const response = await axios.get('http://localhost:5000/api/vehicles');
+            const response = await axios.get('https://zoom-car-capstone.onrender.com/api/vehicles');
             setVehicles(response.data);
         };
         fetchVehicles();

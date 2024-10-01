@@ -8,7 +8,7 @@ const MyBookingHistory = () => {
         const fetchBookings = async () => {
             const token = localStorage.getItem('token');
             const userId = 'dummyUserId'; // Replace with actual user ID
-            const response = await axios.get(`http://localhost:5000/api/bookings/${userId}`, {
+            const response = await axios.get(`https://zoom-car-capstone.onrender.com/api/bookings/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setBookings(response.data);

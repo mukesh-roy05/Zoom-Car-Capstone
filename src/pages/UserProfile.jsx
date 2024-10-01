@@ -7,7 +7,7 @@ const UserProfile = () => {
     useEffect(() => {
         const fetchUserProfile = async () => {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:5000/api/auth/profile', {
+            const response = await axios.get('https://zoom-car-capstone.onrender.com/api/auth/profile', {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUser(response.data);
@@ -24,7 +24,7 @@ const UserProfile = () => {
         // Logic to update user profile
         try {
             const token = localStorage.getItem('token');
-            await axios.put('http://localhost:5000/api/auth/profile', user, {
+            await axios.put('https://zoom-car-capstone.onrender.com/api/auth/profile', user, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             alert('Profile updated successfully');
