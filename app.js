@@ -7,7 +7,7 @@ const app = express();
 // middlewares
 
 //Parse the Cookie
-app.use(cookieParser);
+app.use(cookieParser());
 
 // parse incoming request with json payload
 app.use(express.json());
