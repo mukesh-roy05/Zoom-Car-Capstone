@@ -1,7 +1,8 @@
 const express = require("express");
+const router = require("./routes/routes");
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Welcome to Zoom Car App!!!");
-});
+// setup router
+
+app.use("/", router);
 module.exports = app;
