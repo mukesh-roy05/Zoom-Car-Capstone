@@ -1,8 +1,11 @@
 const express = require("express");
-const router = require("./routes/routes");
+const authRouter = require("./routes/authRoutes");
 const app = express();
 
-// setup router
+// middlewares
+// parse incoming request with json payload
+app.use(express.json());
 
-app.use("/", router);
+//set up routes
+app.use("/auth", authRouter);
 module.exports = app;
