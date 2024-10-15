@@ -3,17 +3,24 @@ const bcrypt = require("bcrypt");
 const authController = {
   register: async (req, res) => {
     try {
-      const { name, email, password } = req.body;
-      const user = await User.findOne({ email });
+      const { username, name, email, password, role } = req.body;
+      const email_1 = await User.findOne({ email });
+      const username_1 = await User.findOne({ email });
 
-      if (user) {
+      if (email_1 && username_1) {
         return res.status(400).json({ message: "User already Exist" });
       }
 
       // Hash the password
       const hashedPassword = await bcrypt.hash(password, 10);
       //create new User
-      const newUser = new User({ name, email, password: hashedPassword });
+      const newUser = new User({
+        username,
+        name,
+        email,
+        password: hashedPassword,
+        role,
+      });
 
       await newUser.save();
       res.status(201).json({ message: "User Registered Successfully" });
