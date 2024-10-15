@@ -4,7 +4,8 @@
   "description": "Zoom Car Clone",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/mukesh-roy05/Zoom-Car-Capstone/issues"
   },
-  "homepage": "https://github.com/mukesh-roy05/Zoom-Car-Capstone#readme"
+  "homepage": "https://github.com/mukesh-roy05/Zoom-Car-Capstone#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
 }
