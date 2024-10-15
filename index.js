@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
-const { MONGODB_URI } = require("./utils/config");
+const { MONGODB_URI, PORT } = require("./utils/config");
 const app = require("./app");
 
 mongoose
   .connect(MONGODB_URI)
   .then(() => {
     console.log("MONGODB Connected...");
-    app.listen(3001, () => {
-      console.log("Server is running on port 3001");
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
     });
   })
   .catch((error) => console.error("Couldn't Connect to MongoDB..."));
