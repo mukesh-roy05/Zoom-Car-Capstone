@@ -53,9 +53,6 @@ const authController = {
       httpOnly: true,
       sameSite: "None",
       secure: true,
-      // sameSite: "strict",
-      // secure: process.env.NODE_ENV === "production" ? true : false,
-      // maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.status(200).json({ message: "User logged in successfully..." });
   },
