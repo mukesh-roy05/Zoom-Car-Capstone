@@ -58,8 +58,13 @@ const authController = {
       // maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     res.status(200).json({ message: "User logged in successfully..." });
-    
   },
+  logout: async (req, res) => {
+    // remove Cookie
+    res.clearCookie("token");
+    res.status(200).json({ message: "User Logout Successfully..." });
+  },
+  me: async (req, res) => {},
 };
 
 module.exports = authController;
