@@ -50,7 +50,6 @@ const postController = {
       if (!description) {
         return res.status(400).json({ message: "Description is required..." });
       }
-      console.log(id);
       const post = await Post.findById(id);
 
       if (!post) {
