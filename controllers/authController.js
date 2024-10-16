@@ -54,6 +54,7 @@ const authController = {
       sameSite: "None",
       secure: true,
     });
+
     res.status(200).json({ message: "User logged in successfully..." });
   },
   logout: async (req, res) => {
@@ -61,7 +62,14 @@ const authController = {
     res.clearCookie("token");
     res.status(200).json({ message: "User Logout Successfully..." });
   },
-  me: async (req, res) => {},
+  me: async (req, res) => {
+    // Extract USER by ID from request object
+    const userId = req.userId;
+
+    // find user by id and exclude password
+    const user = await User.findById(userId).select("-password");
+    res.status(200).json(user);
+  },
 };
 
 module.exports = authController;
