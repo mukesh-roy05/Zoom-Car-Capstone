@@ -22,15 +22,16 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import ZoomCarLogo from "../assets/ZoomCarLogo.png";
-import { GiTwoCoins } from "react-icons/gi"; // Lowercase "gi"
-import { ImCoinDollar } from "react-icons/im"; // Lowercase "im"
-import { IoCarOutline } from "react-icons/io5"; // Lowercase "io5"
-import { MdVerifiedUser } from "react-icons/md"; // Lowercase "md"
-import { IoLocationOutline } from "react-icons/io5"; // Lowercase "io5"
-import { IoCallOutline } from "react-icons/io5"; // Lowercase "io5"
-import { MdLogout } from "react-icons/md"; // Lowercase "md"
-import { CgMenuBoxed } from "react-icons/cg"; // Lowercase "cg"
-import { AiOutlineCodeSandbox } from "react-icons/ai"; // Lowercase "ai"
+import { IoWalletOutline } from "react-icons/io5";
+import { GiTwoCoins } from "react-icons/Gi";
+import { ImCoinDollar } from "react-icons/Im";
+import { IoCarOutline } from "react-icons/io5";
+import { MdVerifiedUser } from "react-icons/Md";
+import { IoLocationOutline } from "react-icons/io5";
+import { IoCallOutline } from "react-icons/io5";
+import { MdLogout } from "react-icons/Md";
+import { CgMenuBoxed } from "react-icons/Cg";
+import { AiOutlineCodeSandbox } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { logoutAction } from "../Redux/Auth/action";
