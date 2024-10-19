@@ -12,7 +12,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: [
-        "react-icons/gi",
+        "react-icons/gi", // Correct casing
         "react-icons/im",
         "react-icons/io5",
         "react-icons/md",
