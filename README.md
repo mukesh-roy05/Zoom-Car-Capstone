@@ -1,60 +1,67 @@
-Description :
-Design and develop an Application using the full-stack.
 
-Project Title :
+<div align='center'>
+  
+<br />
+  
+<br />
+  
+  <h1>This is a Full-Stack Clone of car sharing platform Zoomcar</h1>
+  
+</div>
 
-    AutoShare - Zoom Car clone
+<br />
 
-Project Description:
+# Features :-
 
-Design Phase:
+#      1. Home Page 
+  
+  ![Zoomcar-Homepage-1](https://user-images.githubusercontent.com/97458281/185588893-5445835c-5b2e-4780-87f6-47d9f21ddc31.png)
 
-Sketch the layout of your application’s interface, focusing on usability and user experience. Use CSS frameworks like Bootstrap for a responsive design that adapts to various screen sizes.
+  ![Zoomcar-Homepage-2](https://user-images.githubusercontent.com/97458281/185588897-98836dff-1586-4404-b19c-88201bf9917b.png)
 
-Development Phase:
 
-Frontend Development:
 
-Use React for building a dynamic and interactive UI.
-Create separate components for the login and registration forms.
-Use React state and Formik to manage form inputs and validation messages.
-Utilize React Router for handling client-side routing.
-Implement Redux or the Context API for state management across the application.  
-Backend Development:
+#    2. Sign-in/Sign-up Page
 
-Set up Node.js and Express.js for creating RESTful APIs to handle requests and responses.
-Use MongoDB for storing and managing tasks, user data, and authentication details.
-Implement JWT, and Bcrypt for secure access.
-Integrate middleware for user permissions and role-based access control.
-Functionality Development:
 
-Users can view all categories of rental vehicle & availability, price details.
-Users can search & filter based on their preferences by categories, budget.
-Users can choose from various vehicles for rent based on their preferences.
-Users can manage bookings, view details, and cancel reservations.(CRUD)
-List all booking logs on individual components.
-They can rate and review cleaning services.
-Secure payment processing is available for rental transactions within the app (RazorPayment Or Stripe Payment).
-Note : In addition to the features listed above, you can also implement what you have come up with on your own.
+  ![Zoomcar-LoginRegisterPage-1](https://user-images.githubusercontent.com/97458281/185588936-823b4654-de5a-4eae-acc5-29507aa583c5.png)
 
-Tech Stacks:
+  ![Zoomcar-LoginRegisterPage-2](https://user-images.githubusercontent.com/97458281/185588960-b01df490-105b-469b-979c-285f56ada10a.png)
 
-Front-end: Reactjs
-Back-end: Nodejs
-Database: MongoDB
-Deployment process:
+  ![Zoomcar-LoginRegisterPage-3](https://user-images.githubusercontent.com/97458281/185588987-1432943f-022e-4fa4-a733-f3497cc3e56a.png)
 
-Follow all the given instructions and submit your project with all the requirements.Push all your work files to GitHub in two different repositories as given below.
-Front-end repo name project-name-frontend.
-Back-end repo name project-name-backend.
-Deploy your front-end application on Netlify(https://www.netlify.com) and back-end application on Render(https://www.render.com/).
-Terms and Conditions?
 
-You agree not to share this confidential document with anyone
-You agree to open-source your code (it may even look good on your profile!). Do not mention our company’s name anywhere in the code.
-We will never use your source code under any circumstances for any commercial purposes; this is just a basic assessment task.
-For the capstone, the use case has to be identified by the developer.
-NOTE:
+#     3. Select City and Country Popup
 
-Does your project's code contain any instances of plagiarism or copying? That won't be considered.
-It is your responsibility to follow the Terms and Conditions, violations will not be permitted.
+  ![Zoomcar-CityandCountryPage](https://user-images.githubusercontent.com/97458281/185589391-957ab3ed-a301-4fba-8dfa-c9191b34e859.png)
+
+#      4. Select Location Page
+
+  ![Zoomcar- LocationPage](https://user-images.githubusercontent.com/97458281/185589510-94276e3a-3633-4978-9810-6ee8a0894a0e.png)
+
+
+#      5. Select Date and Time Page
+
+  ![Zoomcar-DateandTimePage](https://user-images.githubusercontent.com/97458281/185589659-a520cf5d-62e5-4b38-8970-c9c920393aae.png)
+
+#      6. Cars Page
+
+  ![Zoomcar-CarPage](https://user-images.githubusercontent.com/97458281/185589796-d51fefd2-e724-4438-b504-be918b512557.png)
+
+   
+# Areas of responsibility:
+
+  Built a whole frontend & backend.
+
+A solo project excuted in one week.
+
+
+
+# 👨‍💻 Tech stack
+
+Here's a overview of the tech stack the pepperfry uses:
+
+React | Redux | Node.Js | Express | MongoDB | Mongoose | ChakraUI
+
+
+
