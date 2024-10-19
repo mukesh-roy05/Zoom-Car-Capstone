@@ -9,7 +9,7 @@
 export default {
   build: {
     rollupOptions: {
-      external: ["react-icons/Gi"],
+      external: ["react-icons/Gi", "react-icons/im"],
     },
   },
 };
