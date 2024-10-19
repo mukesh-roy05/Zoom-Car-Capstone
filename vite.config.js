@@ -6,12 +6,10 @@
 //   plugins: [react()]
 // })
 
-import { defineConfig } from "vite";
-
-export default defineConfig({
+export default {
   build: {
     rollupOptions: {
-      external: ["react-icons/gi"], // only if absolutely needed
+      external: ["react-icons/Gi"],
     },
   },
-});
+};

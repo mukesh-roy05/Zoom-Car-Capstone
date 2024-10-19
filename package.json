@@ -3,10 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-  "clean": "rimraf dist",
-  "build": "vite build",
-  "clean-and-build": "rimraf dist && vite build"
-},
+    "clean": "rimraf dist",
+    "build": "vite build",
+    "clean-and-build": "rimraf dist && vite build"
+  },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.2",
     "@chakra-ui/react": "^2.2.1",
