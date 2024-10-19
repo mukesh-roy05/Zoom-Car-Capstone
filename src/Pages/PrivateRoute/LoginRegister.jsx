@@ -54,7 +54,7 @@ export const LoginRegister = () => {
     axios
       // .post(`${URL}/api/users/login`, user)
       //  .post("https://cloned-zoomcar.herokuapp.com/login", user)
-       .post(`${URL}/api/login`, user)
+       .post(`${URL}/login`, user)
       .then((res) => {
         alert(res.data.message);
         setCookie("auth", true);
