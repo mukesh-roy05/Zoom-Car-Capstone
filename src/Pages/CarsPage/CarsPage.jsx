@@ -16,7 +16,7 @@ export const CarsPage = () => {
   const [data, setData] = useState({});
 
   console.log(data);
-  console.log(cookies.City);
+  console.log('CITY........',cookies.City);
 
   useEffect(() => {
     // Use axios to get data from the API
@@ -24,9 +24,10 @@ export const CarsPage = () => {
       .get(`${URL}/cars`) 
       .then((res) => {
         
-        console.log("API Response:", res.data);
-        if (res.data && res.data.data && res.data.data[0] && res.data.data[0].Cars) {
-          setData(res.data.data[0].Cars[0]); // Ensure you're accessing the right structure
+        
+
+        if (res.data && res.data.data && res.data.data[0] ) {
+          setData(res.data.data[0]); // Ensure you're accessing the right structure
         } else {
           console.error("Unexpected response structure:", res.data);
         }
@@ -42,8 +43,21 @@ export const CarsPage = () => {
     navigate("/");
   };
 
+             
+// const data1 = {
+//   Banglore: [
+//     { id: 1, name: 'Car A', type: 'SUV', rating: 4.5, price: '₹500', image: 'url_to_image' },
+//     // More cars...
+//   ],
+//   Pune: [
+//     // Cars for Pune...
+//   ],
+//   // Other cities...
+// };
+ console.log("API Response:....", data);
   return (
     <Box>
+     
       <Box w="58%" m={"auto"} mt={"10px"}>
         <Flex justifyContent="space-between">
           <Button
@@ -68,9 +82,12 @@ export const CarsPage = () => {
           </Button>
         </Flex>
       </Box>
-      <Box w="60%" m="auto" p={3}>
+      {/* <Box w="60%" m="auto" p={3}>
         {Object.keys(data).map((elem) => {
+          console.log('LOCATION......',elem);
+          
           if (elem === cookies.City) {
+            
             return data[elem].map((e) => (
               <Box mb={3} key={e.id}>
                 <Flex justifyContent="space-between" border="1px solid black" p={3}>
@@ -98,12 +115,47 @@ export const CarsPage = () => {
                     <Image style={{ width: "95%" }} src={e.image} />
                   </Box>
                 </Flex>
+                
               </Box>
             ));
           }
           return null; // Ensure there's a return statement
         })}
-      </Box>
+      </Box> */}
+<Box w="60%" m="auto" p={3}>
+      {data.location === cookies.City ? ( // Compare directly with location
+        <Box mb={3} key={data._id}> {/* Use the correct key for unique ID */}
+          <Flex justifyContent="space-between" border="1px solid black" p={3}>
+            <Box w="60%" p={4}>
+              <Box fontSize="large" fontWeight="bold">
+                {data.name}
+              </Box>
+              <Box>{data.type}</Box>
+              <Flex>
+                <Box mr={2} mt={1}>
+                  <AiFillStar />
+                </Box>
+                <Box>{data.rating}</Box>
+              </Flex>
+              <Box color="green" fontWeight="bold">
+                {data.price}
+              </Box>
+              <Box mt={10}>
+                <Button bg="green" color="white" onClick={() => handleBook(data._id)}>
+                  Book Now
+                </Button>
+              </Box>
+            </Box>
+            <Box w="40%">
+              <Image style={{ width: "95%" }} src={data.image} />
+            </Box>
+          </Flex>
+        </Box>
+      ) : (
+        <Box>No cars available for this city.</Box>
+      )}
+    </Box>
+
     </Box>
   );
 };

@@ -23,7 +23,7 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import ZoomCarLogo from "../assets/ZoomCarLogo.png";
 import { IoWalletOutline } from "react-icons/io5";
-import { GiTwoCoins } from "react-icons/Gi";
+// import { GiTwoCoins } from "react-icons/Gi";
 import { ImCoinDollar } from "react-icons/Im";
 import { IoCarOutline } from "react-icons/io5";
 import { MdVerifiedUser } from "react-icons/Md";
