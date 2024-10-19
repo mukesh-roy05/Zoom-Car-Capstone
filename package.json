@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-     "dev": "vite",
-     "build": "npm run some-other-commands && [ -f ./_redirects ] && cp ./_redirects ./dist/ || echo '_redirects not found, skipping copy'",
-     "preview": "vite preview"
+    "dev": "vite",
+    "build": "vite build && cp./_redirects ./dist/_redirects",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.2",
