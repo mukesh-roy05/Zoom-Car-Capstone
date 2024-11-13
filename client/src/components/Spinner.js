@@ -1,14 +1,11 @@
-const Spinner = () => {
+import React from "react";
+import { Spin } from "antd";
+function Spinner() {
   return (
     <div className="spinner">
-      <div class="d-flex align-items-center">
-        <div class="spinner-border me-2" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <span>Loading...</span>
-      </div>
+      <Spin size="large" />
     </div>
   );
-};
+}
 
 export default Spinner;

@@ -1,49 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: azure !important;
-  overflow-x: hidden;
-  /* Prevent horizontal overflow */
+  background-color: azure;
 }
 
-p {
-  margin: 5px;
-  text-align: center;
-  padding: 0;
+body,
+html {
+  overflow-x: hidden !important;
 }
 
 code {
-  font-family: 'source-code-pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 .bs1 {
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
-    rgba(17, 17, 26, 0.1) 0px 8px 24px,
-    rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.ant-row {
+  margin: 0 20 !important;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
 }
 
 h1 {
   font-size: 30px;
   font-weight: bold;
-  color: orangered !important;
+  color: orangered;
 }
 
-.header {
-  padding: 10px;
-}
+p {
+  margin: 5px !important;
 
-.content {
-  min-height: 90vh;
-  overflow: hidden;
-  /* Prevent overflow in the content */
-}
-
-.show-hide {
-  margin-left: 30%;
+  padding: 0;
 }
 
 .btn1 {
@@ -51,141 +50,72 @@ h1 {
   background-color: white !important;
   color: orangered !important;
   border: 1px solid orangered !important;
-  padding: 10px 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  padding: 5px 15px !important;
+  outline: none !important;
 }
 
-.btn1:hover {
-  background-color: orangered;
-  color: white;
+.bt1:focus {
+  border: none;
 }
 
+button {
+  padding: 3px 10px !important;
+}
+
+.header {
+  padding: 10px;
+
+}
+
+.header .ant-btn {
+  box-shadow: none !important;
+  background-color: white !important;
+  color: orangered !important;
+  border: 1px solid orangered !important;
+  padding: 5px 15px !important;
+  outline: none !important;
+}
+
+.content {
+  min-height: 90vh;
+
+}
+
+.footer {
+  background-color: aliceblue;
+  padding: 10px;
+}
+
+
+/* this is just for ui purpose , no functionality is related */
 .car {
   border-radius: 5px;
-  margin-top: 60px;
-  transition: all 0.3s ease;
-  overflow: hidden;
-  width: 100%;
-  /* Make the card responsive in width */
-  height: auto;
-  /* Height adjusts based on content */
-  box-sizing: border-box;
-  /* Ensures padding and borders are included in width/height calculation */
+  margin-top: 100px;
+  height: 160px;
+  transition: 0.3s;
 }
 
 .car:hover {
-  height: auto;
-  /* Allow the card height to adjust on hover */
+  height: 220px;
 }
 
-.carImg {
-  width: 100%;
-  /* Makes the image responsive */
-  height: 200px;
-  object-fit: cover;
-  /* Ensures image covers the entire space without distortion */
+.car:hover>.car-content {
+
+  opacity: 1;
+  transform: translateY(-40px)
+}
+
+.carimg {
+  height: 180px;
+  width: auto;
   border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.carImg:hover {
-  transform: scale(1.1);
-  /* Slight zoom effect on hover */
+  transform: translateY(-50px);
 }
 
 .car-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
+  transform: translateY(-200px);
   opacity: 0;
-  transform: translateY(0);
-  transition: all 0.3s ease;
-  flex-wrap: wrap;
-  /* Allow content to wrap inside the container */
-  width: 100%;
-}
-
-.card-body {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
-  width: 100%;
-  flex-wrap: wrap;
-  /* Allow content to wrap inside the card body */
-}
-
-.card-body p {
-  margin: 0;
-}
-
-.card-title {
-  font-weight: bold;
-  font-size: 18px;
-  margin-right: 10px;
-}
-
-/* Make sure name and rent appear horizontally */
-.card-body {
-  flex-direction: row;
-}
-
-.card-body .card-title,
-.card-body p {
-  margin-right: 10px;
-  /* Space between name and rent */
-}
-
-.card-body .card-title {
-  font-weight: bold;
-}
-
-.card-body p {
-  font-size: 16px;
-}
-
-/* Hover effect for .car-content */
-.car:hover>.car-content {
-  opacity: 1;
-  transform: translateY(-10px);
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .car {
-    margin-top: 30px;
-  }
-
-  .carImg {
-    height: 150px;
-    /* Smaller image size on small screens */
-  }
-
-  .card-body {
-    flex-direction: column;
-    /* Stack the content vertically on small screens */
-    text-align: center;
-    /* Center the text */
-  }
-
-  .card-body .card-title,
-  .card-body p {
-    margin-bottom: 10px;
-    /* Space between name and rent when stacked vertically */
-  }
-
-  .btn1 {
-    margin-top: 10px;
-  }
-}
-
-.spinner{
-  position:absolute;
-  top: 50%;
-  left: 50%;
+  transition: 0.3s;
 }
 
 .login {
@@ -227,4 +157,19 @@ h1 {
 .login a {
   color: white !important;
   opacity: 0.5;
+}
+
+.carimg2 {
+  height: 400px;
+  border-radius: 10px;
+  width: auto;
+}
+
+svg {
+  height: 20px !important;
+  width: 20px !important;
+}
+
+a {
+  color: orangered !important;
 }
