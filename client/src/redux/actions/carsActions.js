@@ -4,7 +4,7 @@ export const getAllCars = () => async (dispatch) => {
   dispatch({ type: "GET_ALL_CARS_REQUEST" });
   try {
     const response = await instance.get("api/cars/getallCars");
-    console.log(response.data); // Log the response data to confirm its structure
+    // console.log(response.data); // Log the response data to confirm its structure
 
     // Assuming response.data is an array
     dispatch({

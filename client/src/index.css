@@ -1,36 +1,189 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;800;900&display=swap');
+
 body {
   margin: 0;
-  font-family: "Montserrat", serif !important;
+  font-family: 'Montserrat', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: azure !important;
+  overflow-x: hidden;
+  /* Prevent horizontal overflow */
+}
+
+p {
+  margin: 5px;
+  text-align: center;
+  padding: 0;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'source-code-pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.bs1{
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+.bs1 {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
-h1{
+h1 {
   font-size: 30px;
   font-weight: bold;
   color: orangered !important;
 }
 
-.header{
- padding: 10px;
+.header {
+  padding: 10px;
 }
 
-.content{
+.content {
   min-height: 90vh;
+  overflow: hidden;
+  /* Prevent overflow in the content */
 }
 
-.show-hide{
+.show-hide {
   margin-left: 30%;
+}
 
+.btn1 {
+  box-shadow: none !important;
+  background-color: white !important;
+  color: orangered !important;
+  border: 1px solid orangered !important;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn1:hover {
+  background-color: orangered;
+  color: white;
+}
+
+.car {
+  border-radius: 5px;
+  margin-top: 60px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  width: 100%;
+  /* Make the card responsive in width */
+  height: auto;
+  /* Height adjusts based on content */
+  box-sizing: border-box;
+  /* Ensures padding and borders are included in width/height calculation */
+}
+
+.car:hover {
+  height: auto;
+  /* Allow the card height to adjust on hover */
+}
+
+.carImg {
+  width: 100%;
+  /* Makes the image responsive */
+  height: 200px;
+  object-fit: cover;
+  /* Ensures image covers the entire space without distortion */
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.carImg:hover {
+  transform: scale(1.1);
+  /* Slight zoom effect on hover */
+}
+
+.car-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  flex-wrap: wrap;
+  /* Allow content to wrap inside the container */
+  width: 100%;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  flex-wrap: wrap;
+  /* Allow content to wrap inside the card body */
+}
+
+.card-body p {
+  margin: 0;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* Make sure name and rent appear horizontally */
+.card-body {
+  flex-direction: row;
+}
+
+.card-body .card-title,
+.card-body p {
+  margin-right: 10px;
+  /* Space between name and rent */
+}
+
+.card-body .card-title {
+  font-weight: bold;
+}
+
+.card-body p {
+  font-size: 16px;
+}
+
+/* Hover effect for .car-content */
+.car:hover>.car-content {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .car {
+    margin-top: 30px;
+  }
+
+  .carImg {
+    height: 150px;
+    /* Smaller image size on small screens */
+  }
+
+  .card-body {
+    flex-direction: column;
+    /* Stack the content vertically on small screens */
+    text-align: center;
+    /* Center the text */
+  }
+
+  .card-body .card-title,
+  .card-body p {
+    margin-bottom: 10px;
+    /* Space between name and rent when stacked vertically */
+  }
+
+  .btn1 {
+    margin-top: 10px;
+  }
+}
+
+.spinner{
+  position:absolute;
+  top: 50%;
+  left: 50%;
 }
