@@ -1,21 +1,18 @@
 import instance from "../../service/instance";
 
 export const getAllCars = () => async (dispatch) => {
-  dispatch({ type: "GET_ALL_CARS_REQUEST" });
+  dispatch({ type: "LOADING", payload: true });
+
   try {
     const response = await instance.get("api/cars/getallCars");
-    // console.log(response.data); // Log the response data to confirm its structure
-
-    // Assuming response.data is an array
     dispatch({
-      type: "GET_ALL_CARS_SUCCESS",
+      type: "GET_ALL_CARS",
       payload: response.data,
     });
+    dispatch({ type: "LOADING", payload: false });
   } catch (error) {
-    console.error("Error fetching cars:", error.message); // Log error message
-    dispatch({
-      type: "GET_ALL_CARS_FAILURE",
-      payload: error.message,
-    });
+    console.error("Error fetching cars:", error.message);
+
+    dispatch({ type: "LOADING", payload: false });
   }
 };

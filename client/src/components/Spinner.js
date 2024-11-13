@@ -1,8 +1,11 @@
 const Spinner = () => {
   return (
     <div className="spinner">
-      <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Loading...</span>
+      <div class="d-flex align-items-center">
+        <div class="spinner-border me-2" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <span>Loading...</span>
       </div>
     </div>
   );
