@@ -188,34 +188,43 @@ h1 {
   left: 50%;
 }
 
-.login{
+.login {
   background-color: black;
+  padding-top: 50px;
   min-height: 100vh;
 }
 
-.login label , .login h1{
-  color: white;
-   opacity: .7; 
-}
-.login-form{
-  background-color: black;
+.login label,
+.login h1 {
+  color: white !important;
+  opacity: 0.6;
 }
 
-.login-form input{
-  background-color: #333333;
-  border: none;
+.login-form {
+  background-color: #1F1F1F;
+}
+
+.login-form input {
+  background-color: #333333 !important;
+  border: none !important;
+  color: white;
+  opacity: 0.5;
 }
 
 .login-logo {
-  color:rgb(172, 178, 184) !important;
-  /* position: absolute; */
+  position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: 60%;
   bottom: 50%;
-  /* transform: translateY(-50%,-50%); */
+  transform: translateY(-50%, -50%);
   font-size: 45px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  opacity: .5 !important;
+  opacity: 0.2 !important;
+
+
 }
 
+.login a {
+  color: white !important;
+  opacity: 0.5;
+}
