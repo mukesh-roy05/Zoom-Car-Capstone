@@ -187,3 +187,35 @@ h1 {
   top: 50%;
   left: 50%;
 }
+
+.login{
+  background-color: black;
+  min-height: 100vh;
+}
+
+.login label , .login h1{
+  color: white;
+   opacity: .7; 
+}
+.login-form{
+  background-color: black;
+}
+
+.login-form input{
+  background-color: #333333;
+  border: none;
+}
+
+.login-logo {
+  color:rgb(172, 178, 184) !important;
+  /* position: absolute; */
+  left: 0;
+  right: 0;
+  top: 50%;
+  bottom: 50%;
+  /* transform: translateY(-50%,-50%); */
+  font-size: 45px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  opacity: .5 !important;
+}
+
