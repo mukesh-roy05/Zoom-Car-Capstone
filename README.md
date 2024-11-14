@@ -12,7 +12,7 @@ Rent a car for airport pickups, grocery shopping, mall visits, upcoming weddings
 
 # Login Page
 
-![Screenshot (442)](https://user-images.githubusercontent.com/101388724/213978446-dbfbdb2d-4ee0-4823-8f77-a27051bfcc10.png)
+![alt text](image-6.png)
 
 # Register Page
 
