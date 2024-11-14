@@ -22,15 +22,19 @@ Rent a car for airport pickups, grocery shopping, mall visits, upcoming weddings
 
 ![alt text](image-1.png)
 
-# Checkout Page
-
-![alt text](image-3.png)
-
 # Book Car
 
 ![alt text](image-4.png)
 
 ![alt text](image-5.png)
+
+# Checkout Page
+
+![alt text](image-7.png)
+
+# My Bookings
+
+![alt text](image-8.png)
 
 ## Tech Stacks:
 
