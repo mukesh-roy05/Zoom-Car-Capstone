@@ -1,4 +1,4 @@
-import { Col, Row, Divider, DatePicker, Checkbox, Modal } from "antd";
+import { Col, Row, Divider, DatePicker, Checkbox, Modal, Radio } from "antd";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
@@ -12,25 +12,28 @@ import { useParams } from "react-router-dom";
 
 import "aos/dist/aos.css"; // You can also use <link> for styles
 const { RangePicker } = DatePicker;
+
 function BookingCar({ match }) {
   const { cars } = useSelector((state) => state.carsReducer);
   const { loading } = useSelector((state) => state.alertsReducer);
-  const [car, setcar] = useState({});
+  const [car, setCar] = useState({});
   const dispatch = useDispatch();
   const [from, setFrom] = useState();
   const [to, setTo] = useState();
   const [totalHours, setTotalHours] = useState(0);
-  const [driver, setdriver] = useState(false);
+  const [driver, setDriver] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState("stripe"); // Payment method state
+  const [showPaymentMethodModal, setShowPaymentMethodModal] = useState(false); // Show modal for payment method selection
 
   const { carid } = useParams();
 
   useEffect(() => {
-    if (cars.length == 0) {
+    if (cars.length === 0) {
       dispatch(getAllCars());
     } else {
-      setcar(cars.find((o) => o._id == carid));
+      setCar(cars.find((o) => o._id === carid));
     }
   }, [cars]);
 
@@ -44,7 +47,6 @@ function BookingCar({ match }) {
   function selectTimeSlots(values) {
     setFrom(moment(values[0]).format("MMM DD yyyy HH:mm"));
     setTo(moment(values[1]).format("MMM DD yyyy HH:mm"));
-
     setTotalHours(values[1].diff(values[0], "hours"));
   }
 
@@ -61,8 +63,25 @@ function BookingCar({ match }) {
         to,
       },
     };
-
     dispatch(bookCar(reqObj));
+  }
+
+  // Handle booking with cash payment
+  function handleCashBooking() {
+    const reqObj = {
+      user: JSON.parse(localStorage.getItem("user"))._id,
+      car: car._id,
+      totalHours,
+      totalAmount,
+      driverRequired: driver,
+      bookedTimeSlots: {
+        from,
+        to,
+      },
+      paymentMethod: "cash",
+    };
+    dispatch(bookCar(reqObj)); // Book car with cash payment
+    setShowPaymentMethodModal(false); // Close modal
   }
 
   return (
@@ -121,9 +140,9 @@ function BookingCar({ match }) {
               <Checkbox
                 onChange={(e) => {
                   if (e.target.checked) {
-                    setdriver(true);
+                    setDriver(true);
                   } else {
-                    setdriver(false);
+                    setDriver(false);
                   }
                 }}
               >
@@ -132,22 +151,53 @@ function BookingCar({ match }) {
 
               <h3>Total Amount : {totalAmount}</h3>
 
-              <StripeCheckout
-                shippingAddress
-                token={onToken}
-                currency="inr"
-                amount={totalAmount * 100}
-                stripeKey="pk_test_51IYnC0SIR2AbPxU0TMStZwFUoaDZle9yXVygpVIzg36LdpO8aSG8B9j2C0AikiQw2YyCI8n4faFYQI5uG3Nk5EGQ00lCfjXYvZ"
+              {/* Show Payment Method Modal */}
+              <button
+                className="btn1"
+                onClick={() => setShowPaymentMethodModal(true)}
               >
-                <button className="btn1">Book Now</button>
-              </StripeCheckout>
+                Book Now
+              </button>
+
+              {/* Modal for selecting Payment Method */}
+              <Modal
+                open={showPaymentMethodModal}
+                onCancel={() => setShowPaymentMethodModal(false)}
+                footer={null}
+                title="Select Payment Method"
+              >
+                <Radio.Group
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  value={paymentMethod}
+                >
+                  <Radio value="stripe">Pay via Stripe</Radio>
+                  <Radio value="cash">Pay with Cash</Radio>
+                </Radio.Group>
+                <div className="text-right mt-3">
+                  {paymentMethod === "stripe" ? (
+                    <StripeCheckout
+                      shippingAddress
+                      token={onToken}
+                      currency="inr"
+                      amount={totalAmount * 100}
+                      stripeKey="pk_test_51IYnC0SIR2AbPxU0TMStZwFUoaDZle9yXVygpVIzg36LdpO8aSG8B9j2C0AikiQw2YyCI8n4faFYQI5uG3Nk5EGQ00lCfjXYvZ"
+                    >
+                      <button className="btn1">Proceed with Payment</button>
+                    </StripeCheckout>
+                  ) : (
+                    <button className="btn1" onClick={handleCashBooking}>
+                      Confirm Booking (Pay with Cash)
+                    </button>
+                  )}
+                </div>
+              </Modal>
             </div>
           )}
         </Col>
 
         {car.name && (
           <Modal
-            visible={showModal}
+            open={showModal}
             closable={false}
             footer={false}
             title="Booked time slots"
@@ -155,7 +205,7 @@ function BookingCar({ match }) {
             <div className="p-2">
               {car.bookedTimeSlots.map((slot) => {
                 return (
-                  <button className="btn1 mt-2">
+                  <button className="btn1 mt-2" key={slot.from}>
                     {slot.from} - {slot.to}
                   </button>
                 );
