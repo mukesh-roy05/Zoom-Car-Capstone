@@ -2,6 +2,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { carsReducer } from "./reducers/carsReducer";
 import { alertsReducer } from "./reducers/alertsReducer";
+import { bookingsReducer } from "./reducers/bookingsReducer";
 
 // Configure the store with Redux Toolkit
 const store = configureStore({

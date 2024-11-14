@@ -8,6 +8,7 @@ import moment from "moment";
 import { bookCar } from "../redux/actions/bookingActions";
 import StripeCheckout from "react-stripe-checkout";
 import AOS from "aos";
+import { useParams } from "react-router-dom";
 
 import "aos/dist/aos.css"; // You can also use <link> for styles
 const { RangePicker } = DatePicker;
@@ -23,11 +24,13 @@ function BookingCar({ match }) {
   const [totalAmount, setTotalAmount] = useState(0);
   const [showModal, setShowModal] = useState(false);
 
+  const { carid } = useParams();
+
   useEffect(() => {
     if (cars.length == 0) {
       dispatch(getAllCars());
     } else {
-      setcar(cars.find((o) => o._id == match.params.carid));
+      setcar(cars.find((o) => o._id == carid));
     }
   }, [cars]);
 
