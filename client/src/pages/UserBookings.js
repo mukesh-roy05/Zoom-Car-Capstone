@@ -24,6 +24,10 @@ function UserBookings() {
           {bookings
             .filter((o) => o.user == user._id)
             .map((booking) => {
+              console.log(booking);
+              if (!booking.car) {
+                return null; // Skip this booking if car is null or undefined
+              }
               return (
                 <Row gutter={16} className="bs1 mt-3 text-left">
                   <Col lg={6} sm={24}>
