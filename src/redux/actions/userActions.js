@@ -22,6 +22,7 @@ export const userRegister = (reqObj) => async (dispatch) => {
   try {
     const response = await instance.post("api/users/register", reqObj);
     prompt("Registration Success!");
+    console.log(response.data);
     setTimeout(() => {
       window.location.href = "/login";
     }, 500);

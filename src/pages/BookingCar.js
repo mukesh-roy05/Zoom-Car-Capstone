@@ -41,7 +41,7 @@ function BookingCar({ match }) {
     if (driver) {
       setTotalAmount(totalAmount + 30 * totalHours);
     }
-  }, [driver, totalHours, totalAmount, car.rentPerHour]);
+  }, [driver, totalHours, car.rentPerHour]);
 
   function selectTimeSlots(values) {
     setFrom(moment(values[0]).format("MMM DD yyyy HH:mm"));
