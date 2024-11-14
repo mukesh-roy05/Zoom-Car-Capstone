@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
 import { getAllCars } from "../redux/actions/carsActions";
-import { Col, Row, Divider, DatePicker, Checkbox } from "antd";
+import { Col, Row, DatePicker } from "antd";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import moment from "moment";
@@ -15,7 +15,7 @@ function Home() {
 
   useEffect(() => {
     dispatch(getAllCars());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setTotalcars(cars);
@@ -28,7 +28,7 @@ function Home() {
     var temp = [];
 
     for (var car of cars) {
-      if (car.bookedTimeSlots.length == 0) {
+      if (car.bookedTimeSlots.length === 0) {
         temp.push(car);
       } else {
         for (var booking of car.bookedTimeSlots) {
@@ -60,14 +60,14 @@ function Home() {
         </Col>
       </Row>
 
-      {loading == true && <Spinner />}
+      {loading === true && <Spinner />}
 
       <Row justify="center" gutter={16}>
         {totalCars.map((car) => {
           return (
             <Col lg={5} sm={24} xs={24}>
               <div className="car p-2 bs1">
-                <img src={car.image} className="carimg" />
+                <img src={car.image} className="carimg" alt="Car" />
 
                 <div className="car-content d-flex align-items-center justify-content-between">
                   <div className="text-left pl-2">
