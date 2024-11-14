@@ -9,6 +9,7 @@ const store = configureStore({
     // Add the carsReducer here
     carsReducer,
     alertsReducer,
+    bookingsReducer,
   },
   devTools: process.env.NODE_ENV !== "production", // Automatically enables DevTools in dev mode
 });
