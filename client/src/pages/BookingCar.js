@@ -7,7 +7,6 @@ import { getAllCars } from "../redux/actions/carsActions";
 import moment from "moment";
 import { bookCar } from "../redux/actions/bookingActions";
 import StripeCheckout from "react-stripe-checkout";
-import AOS from "aos";
 import { useParams } from "react-router-dom";
 
 import "aos/dist/aos.css"; // You can also use <link> for styles
@@ -35,14 +34,14 @@ function BookingCar({ match }) {
     } else {
       setCar(cars.find((o) => o._id === carid));
     }
-  }, [cars]);
+  }, [cars, carid, dispatch]);
 
   useEffect(() => {
     setTotalAmount(totalHours * car.rentPerHour);
     if (driver) {
       setTotalAmount(totalAmount + 30 * totalHours);
     }
-  }, [driver, totalHours]);
+  }, [driver, totalHours, car.rentPerHour]);
 
   function selectTimeSlots(values) {
     setFrom(moment(values[0]).format("MMM DD yyyy HH:mm"));
@@ -98,6 +97,7 @@ function BookingCar({ match }) {
             className="carimg2 bs1 w-100"
             data-aos="flip-left"
             data-aos-duration="1500"
+            alt=""
           />
         </Col>
 
