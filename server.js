@@ -8,8 +8,8 @@ app.use(express.json());
 
 app.use(
   cors({
-    // origin: "http://localhost:3000", // The origin of your frontend
-    origin: "https://stirring-souffle-a81e31.netlify.app/register",
+    // origin: "http://localhost:3000",
+    origin: "https://stirring-souffle-a81e31.netlify.app",
     credentials: true, // Allow cookies and authentication headers
   })
 );
